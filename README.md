@@ -4,7 +4,7 @@ Công cụ kiểm soát giá bán và biên lợi nhuận cho menu trên food ap
 
 ## Nội dung
 
-- `index.html` — ứng dụng web độc lập (single-file HTML/CSS/JS, không cần build), đổi tên từ `11_VCS_Menu_Food_App_Concepts_Brand.html` để Cloudflare Pages nhận làm trang gốc.
+- `index.html` — ứng dụng web độc lập (single-file HTML/CSS/JS, không cần build), đổi tên từ `12_VCS_Menu_Food_App_Concepts_Brand_v6_vertical.html` để Cloudflare Pages nhận làm trang gốc.
 
 ## Deploy lên Cloudflare Pages (qua GitHub)
 

@@ -5,119 +5,211 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Học viện Concepts · Menu Food App</title>
 <style>
-:root{--bg:#f6f1fb;--panel:#fff;--ink:#241333;--muted:#6f617b;--line:#ded2e8;--accent:#2b0956;--accent2:#ffc700;--orange:#f34900;--good:#0f7a4f;--bad:#b42318;--chip:#f1e8fa;--shadow:0 16px 45px rgba(43,9,86,.14);--radius:22px;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#fff8dc 0,#f6f1fb 35%,#eee5f5 100%);color:var(--ink);font-family:var(--font)}button,input,select{font:inherit}.shell{max-width:1480px;margin:auto;padding:24px 24px 56px}.card{background:rgba(255,255,255,.92);border:1px solid rgba(222,210,232,.95);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}.hero-main{padding:28px 30px;position:relative;overflow:hidden}.hero-main:after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;background:rgba(255,199,0,.19);border-radius:50%}.brandline{display:flex;align-items:center;gap:12px}.mark{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#210640,#2b0956 62%,#f34900);color:white;display:grid;place-items:center;font-weight:950;font-size:22px;box-shadow:0 12px 28px rgba(43,9,86,.28)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--accent);background:var(--chip);padding:8px 12px;border-radius:999px}h1{font-size:38px;line-height:1.05;margin:18px 0 10px;letter-spacing:-.04em}.sub{font-size:16px;color:var(--muted);line-height:1.6;max-width:940px;margin:0}.hero-side{padding:22px;display:flex;flex-direction:column;gap:12px}.mini{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;border-bottom:1px dashed var(--line);padding-bottom:10px}.mini:last-child{border-bottom:0}.mini .label{font-size:13px;color:var(--muted);font-weight:850}.mini .value{font-size:23px;font-weight:950}.note{font-size:13px;color:var(--muted);line-height:1.55}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.kpi{background:white;border:1px solid var(--line);border-radius:18px;padding:15px;min-height:110px;position:relative;overflow:hidden}.kpi.primary{background:linear-gradient(135deg,#210640,#2b0956 65%,#f34900);color:#fff;border-color:#2b0956}.kpi .name{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted)}.kpi.primary .name{color:rgba(255,255,255,.72)}.kpi .num{font-size:27px;font-weight:950;margin-top:9px;letter-spacing:-.04em}.kpi .hint{font-size:12px;color:var(--muted);margin-top:6px}.kpi.primary .hint{color:rgba(255,255,255,.74)}
-.nav{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;position:sticky;top:0;z-index:20;padding:10px 0;background:linear-gradient(180deg,rgba(246,241,251,.98),rgba(246,241,251,.84));backdrop-filter:blur(10px)}.tab-btn{border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:850;border-radius:999px;padding:11px 15px;cursor:pointer}.tab-btn.active{background:var(--accent);color:white;border-color:var(--accent);box-shadow:0 8px 20px rgba(43,9,86,.22)}.actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}.action{border:0;background:linear-gradient(135deg,var(--accent),#4b1187);color:white;border-radius:12px;padding:10px 12px;font-weight:900;cursor:pointer}.action.secondary{background:white;color:var(--ink);border:1px solid var(--line)}.tab{display:none}.tab.active{display:block}.section{padding:22px}.section h2{margin:0 0 6px;font-size:24px}.section p{color:var(--muted);line-height:1.55}.grid{display:grid;gap:16px}.grid-2{grid-template-columns:1fr 1fr}.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.field label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:900;margin-bottom:7px}.field input,.field select{width:100%;border:1px solid var(--line);background:#fffcf2;border-radius:11px;padding:11px 12px;outline:none}.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(43,9,86,.10)}.result{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}.pill{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fffcf2}.pill b{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.pill span{display:block;font-size:22px;font-weight:950;margin-top:8px}.table-wrap{overflow:auto}table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:13px;background:white;min-width:1380px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:#faf7fc;position:sticky;top:0;z-index:2}tr:last-child td{border-bottom:0}td input,td select{width:100%;min-width:88px;border:1px solid #e7deee;border-radius:8px;padding:8px;background:#fffcf2}td input.name{min-width:240px}td input.desc{min-width:260px}.num{text-align:right;font-variant-numeric:tabular-nums}.good{color:var(--good)!important}.bad{color:var(--bad)!important}.warn{color:var(--orange)!important}.mini-btn{border:0;background:#f1e8fa;color:var(--accent);border-radius:8px;padding:8px 10px;cursor:pointer;font-weight:900}.alert-list{display:grid;gap:10px}.alert{padding:13px 14px;border-radius:12px;background:#fff8dc;border:1px solid #e1d2ec;color:#2b0956;line-height:1.45}.alert.good{background:#f0fdf4;border-color:#bbf7d0;color:#14532d}.alert.bad{background:#fff1f2;border-color:#fecdd3;color:#7f1d1d}.barwrap{display:grid;gap:10px}.barrow{display:grid;grid-template-columns:190px 1fr 92px;gap:10px;align-items:center}.barlabel{font-weight:850}.bartrack{height:14px;background:#eee8f2;border-radius:99px;overflow:hidden}.barfill{height:100%;background:linear-gradient(90deg,#2b0956,#f34900);border-radius:99px}.barval{text-align:right;color:var(--muted);font-weight:850}.formula{background:#fff8dc;border:1px solid #e1d2ec;border-radius:12px;padding:14px;line-height:1.6;color:#2b0956}.formula code{background:#f4ebf8;border-radius:6px;padding:2px 5px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#f1e8fa;color:var(--accent);border:1px solid #ded2e8;border-radius:999px;padding:7px 10px;font-weight:850;font-size:12px}.links a{display:block;color:#0f766e;font-weight:850;text-decoration:none;margin:8px 0}.wide{grid-column:1/-1}
-@media(max-width:1050px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.grid-2,.form-grid,.result{grid-template-columns:1fr}.actions{margin-left:0}.barrow{grid-template-columns:120px 1fr 70px}}@media(max-width:620px){.shell{padding:16px}.kpis{grid-template-columns:1fr}h1{font-size:31px}.section{padding:16px}}@media print{.nav,.actions,.mini-btn{display:none}.tab{display:block;page-break-after:always}.card,.kpi{box-shadow:none}.shell{max-width:none}}
+:root{--bg:#f6f1fb;--panel:#fff;--ink:#241333;--muted:#6f617b;--line:#ded2e8;--accent:#2b0956;--accent2:#ffc700;--good:#0f7a4f;--bad:#b42318;--chip:#f1e8fa;--shadow:0 14px 38px rgba(43,9,86,.12);--r:18px;--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#faf7fc,#f3edf8);color:var(--ink);font-family:var(--font)}
+button,input{font:inherit}.shell{max-width:1500px;margin:auto;padding:22px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.hero{padding:26px 28px}.brand{display:flex;gap:10px;align-items:center}.mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:950}.eyebrow{font-size:12px;font-weight:900;color:var(--accent);background:var(--chip);padding:7px 10px;border-radius:999px}h1{font-size:36px;margin:16px 0 8px;letter-spacing:-.03em}.sub{color:var(--muted);line-height:1.6;max-width:980px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.kpi{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}.kpi.primary{background:var(--accent);color:#fff}.kpi .name{font-size:11px;text-transform:uppercase;font-weight:900;color:var(--muted)}.kpi.primary .name{color:#ddd0ef}.kpi .num{font-size:23px;font-weight:950;margin-top:6px}.kpi .hint{font-size:11px;color:var(--muted);margin-top:4px}.kpi.primary .hint{color:#e4d9ef}
+.app-layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:18px;align-items:start;margin-top:18px}
+.nav{display:flex;flex-direction:column;gap:8px;position:sticky;top:16px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.tab-btn{width:100%;text-align:left;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:850;border-radius:11px;padding:12px 14px;cursor:pointer}.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line)}.action{border:0;background:var(--accent);color:white;border-radius:10px;padding:10px 12px;font-weight:900;cursor:pointer}.action.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.tab{display:none}.tab.active{display:block}.section{padding:21px}.section h2{margin:0 0 6px;font-size:23px}.section p{color:var(--muted);line-height:1.55}.grid{display:grid;gap:16px}.grid-2{grid-template-columns:1fr 1fr}.wide{grid-column:1/-1}
+.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.field label{display:block;font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:900;margin-bottom:6px}.field input{width:100%;border:1px solid var(--line);background:#fffdf5;border-radius:10px;padding:10px 11px}
+.result{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.pill{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fffdf5}.pill b{display:block;font-size:11px;text-transform:uppercase;color:var(--muted)}.pill span{display:block;font-size:20px;font-weight:950;margin-top:6px}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:12px;background:#fff;min-width:1750px}th,td{padding:9px;border-bottom:1px solid var(--line);vertical-align:middle}th{font-size:10px;text-transform:uppercase;color:var(--muted);background:#faf7fc;position:sticky;top:0}td input{width:100%;min-width:86px;border:1px solid #e7deee;border-radius:8px;padding:7px;background:#fffdf5}td input.name{min-width:210px}td input.desc{min-width:220px}.num{text-align:right;font-variant-numeric:tabular-nums}.good{color:var(--good)}.bad{color:var(--bad)}
+.alert-list{display:grid;gap:9px}.alert{padding:12px 13px;border-radius:11px;background:#fff8dc;border:1px solid #eadc9c;line-height:1.5}.alert.good{background:#f0fdf4;border-color:#bbf7d0}.alert.bad{background:#fff1f2;border-color:#fecdd3}
+.links a{display:block;color:#0f766e;font-weight:850;text-decoration:none;margin:9px 0}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{background:var(--chip);color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:850}.mini-btn{border:0;background:var(--chip);color:var(--accent);border-radius:8px;padding:7px 9px;font-weight:900;cursor:pointer}
+@media(max-width:1000px){.app-layout{grid-template-columns:1fr}.nav{position:relative;top:auto}.kpis{grid-template-columns:repeat(2,1fr)}.grid-2,.form-grid,.result{grid-template-columns:1fr}}
+@media(max-width:620px){.shell{padding:14px}.kpis{grid-template-columns:1fr}h1{font-size:30px}}
+@media print{.nav{display:none}.app-layout{display:block}.tab{display:block;page-break-after:always}.card,.kpi{box-shadow:none}}
 </style>
 </head>
 <body>
 <div class="shell">
-<section class="hero">
-<div class="card hero-main">
-<div class="brandline"><div class="mark">V.</div><span class="eyebrow">Học viện Concepts · Menu Operating Tool</span></div>
-<h1>Menu Food App · Kiểm soát giá bán và biên lợi nhuận</h1>
-<p class="sub">Nhập giá tại cửa hàng, giá trên ứng dụng, các khoản khấu trừ và chi phí trực tiếp để biết mỗi món thực thu bao nhiêu, còn lại bao nhiêu lợi nhuận gộp. Dữ liệu nhập một lần và cập nhật toàn hệ thống.</p>
-<div class="kpis">
-<div class="kpi primary"><div class="name">Doanh thu thực thu</div><div class="num" id="kNet">—</div><div class="hint">Theo cơ cấu sản lượng giả định</div></div>
-<div class="kpi"><div class="name">Lợi nhuận gộp</div><div class="num" id="kGP">—</div><div class="hint">Sau chi phí trực tiếp</div></div>
-<div class="kpi"><div class="name">Biên LN gộp bình quân</div><div class="num" id="kGM">—</div><div class="hint">Lợi nhuận gộp / doanh thu thực thu</div></div>
-<div class="kpi"><div class="name">Món cần xử lý</div><div class="num" id="kRisk">—</div><div class="hint">Biên gộp dưới ngưỡng mục tiêu</div></div>
-</div>
-</div>
-<div class="card hero-side">
-<div class="mini"><div><div class="label">Tổng số món</div><div class="note">Các dòng menu đang quản lý</div></div><div class="value" id="sideItems">—</div></div>
-<div class="mini"><div><div class="label">Tổng khấu trừ</div><div class="note">Chiết khấu + khuyến mãi + thuế/phí</div></div><div class="value" id="sideDeduct">—</div></div>
-<div class="mini"><div><div class="label">Giá app bình quân</div><div class="note">Trung bình danh mục hiện tại</div></div><div class="value" id="sideAppPrice">—</div></div>
-<div class="mini"><div><div class="label">Ngưỡng Biên LN gộp mục tiêu</div><div class="note">Dùng để cảnh báo từng món</div></div><div class="value" id="sideTarget">—</div></div>
-</div>
+<section class="card hero">
+  <div class="brand"><div class="mark">V.</div><span class="eyebrow">Học viện Concepts · Menu Intelligence Toolkit</span></div>
+  <h1>Menu Food App · Kiểm soát giá và phần tiền giữ lại</h1>
+  <p class="sub">Công cụ hỗ trợ chủ quán và quản lý đọc hiệu quả từng món trên kênh giao đồ ăn, từ giá bán đến phần đóng góp còn lại sau các khoản khấu trừ và chi phí trực tiếp.</p>
+  <div class="kpis">
+    <div class="kpi primary"><div class="name">Thu nhập ròng</div><div class="num" id="kNet">—</div><div class="hint">Theo sản lượng giả định</div></div>
+    <div class="kpi"><div class="name">Biên giữ lại</div><div class="num" id="kKeep">—</div><div class="hint">Thu nhập ròng / giá trị hiển thị</div></div>
+    <div class="kpi"><div class="name">Phần đóng góp</div><div class="num" id="kCont">—</div><div class="hint">Sau NVL + bao bì</div></div>
+    <div class="kpi"><div class="name">Biên đóng góp</div><div class="num" id="kCM">—</div><div class="hint">Đóng góp / giá trị hiển thị</div></div>
+    <div class="kpi"><div class="name">Món cần xử lý</div><div class="num" id="kRisk">—</div><div class="hint">Dưới ngưỡng mục tiêu</div></div>
+  </div>
 </section>
+
+<div class="app-layout">
 <nav class="nav" id="tabs">
-<button class="tab-btn active" data-tab="dashboard">Tổng quan</button>
-<button class="tab-btn" data-tab="setup">Thiết lập phí app</button>
-<button class="tab-btn" data-tab="menu">Danh mục & Menu</button>
-<button class="tab-btn" data-tab="simulator">Mô phỏng giá</button>
-<button class="tab-btn" data-tab="guide">Cách đọc số</button>
-<button class="tab-btn" data-tab="about">Về Học viện Concepts</button>
-<div class="actions"><button class="action secondary" id="exportBtn">Xuất CSV</button><button class="action secondary" onclick="window.print()">In / Lưu PDF</button><button class="action" id="resetBtn">Khôi phục mẫu</button></div>
+  <button class="tab-btn active" data-tab="dashboard">Tổng quan</button>
+  <button class="tab-btn" data-tab="setup">Thiết lập app</button>
+  <button class="tab-btn" data-tab="menu">Danh mục & Menu</button>
+  <button class="tab-btn" data-tab="simulator">Mô phỏng giá</button>
+  <button class="tab-btn" data-tab="guide">Cách đọc số</button>
+  <button class="tab-btn" data-tab="about">Về Học viện Concepts</button>
+  <div class="actions">
+    <button class="action secondary" id="exportBtn">Xuất CSV</button>
+    <button class="action secondary" onclick="window.print()">In / Lưu PDF</button>
+    <button class="action" id="resetBtn">Khôi phục mẫu</button>
+  </div>
 </nav>
+
+<main>
 <section class="tab active" id="dashboard">
 <div class="grid grid-2">
-<div class="card section"><h2>Bức tranh menu trên ứng dụng</h2><p>Các chỉ số được tính theo sản lượng giả định của từng món.</p><div class="result" id="summary"></div><h3>Cơ cấu lợi nhuận gộp</h3><div class="barwrap" id="bars"></div></div>
-<div class="card section"><h2>Cảnh báo ưu tiên</h2><p>Danh sách món cần xem lại trước khi chạy khuyến mãi hoặc tăng ngân sách hiển thị.</p><div class="alert-list" id="alerts"></div></div>
-<div class="card section wide"><h2>Bảng xếp hạng món</h2><p>Xếp theo lợi nhuận gộp trên mỗi đơn, không chỉ theo giá bán.</p><div class="table-wrap"><table><thead><tr><th>Món</th><th>Giá app</th><th>Thực thu</th><th>Chi phí trực tiếp</th><th>Lợi nhuận gộp/đơn</th><th>Biên LN gộp</th><th>Trạng thái</th></tr></thead><tbody id="rankBody"></tbody></table></div></div>
-</div>
-</section>
-<section class="tab" id="setup">
-<div class="card section"><h2>Thiết lập các khoản khấu trừ</h2><p>Điều chỉnh theo hợp đồng từng nền tảng. Các tỷ lệ được áp dụng trực tiếp lên giá app.</p><div class="form-grid">
-<div class="field"><label>Chiết khấu nền tảng (%)</label><input type="number" step="0.1" data-setting="commission"></div>
-<div class="field"><label>Khuyến mãi quán chịu (%)</label><input type="number" step="0.1" data-setting="promotion"></div>
-<div class="field"><label>Thuế và phí khác (%)</label><input type="number" step="0.1" data-setting="tax"></div>
-<div class="field"><label>Ngưỡng Biên LN gộp mục tiêu (%)</label><input type="number" step="0.1" data-setting="targetGM"></div>
-</div><div class="result" id="feeResult"></div></div>
-</section>
-<section class="tab" id="menu">
-<div class="card section"><h2>Danh mục và hiệu quả từng món</h2><div class="chips" style="margin:12px 0"><span class="chip">Giá cửa hàng</span><span class="chip">Giá app</span><span class="chip">Thực thu</span><span class="chip">Chi phí trực tiếp</span><span class="chip">Lợi nhuận gộp & Biên LN gộp</span></div><div class="actions" style="margin:0 0 12px"><button class="action" id="addItem">+ Thêm món</button></div><div class="table-wrap"><table id="menuTable"><thead><tr><th>#</th><th>Nhóm</th><th>Code</th><th>Tên tiếng Việt</th><th>Mô tả / tên tiếng Anh</th><th>Giá cửa hàng</th><th>Giá app</th><th>Thực thu</th><th>Chênh lệch</th><th>Chi phí nguyên liệu</th><th>Bao bì</th><th>Chi phí trực tiếp</th><th>% chi phí</th><th>Lợi nhuận gộp</th><th>Biên LN gộp</th><th></th></tr></thead><tbody></tbody></table></div></div>
-</section>
-<section class="tab" id="simulator">
-<div class="grid grid-2">
-<div class="card section"><h2>Mô phỏng giá app cho một món</h2><p>Dùng để kiểm tra nhanh mức giá cần thiết trước khi đưa món lên nền tảng.</p><div class="form-grid" style="grid-template-columns:1fr 1fr">
-<div class="field"><label>Giá tại cửa hàng</label><input type="number" data-sim="storePrice" value="60000"></div>
-<div class="field"><label>Giá app dự kiến</label><input type="number" data-sim="appPrice" value="65000"></div>
-<div class="field"><label>Chi phí nguyên liệu</label><input type="number" data-sim="ingredient" value="11932"></div>
-<div class="field"><label>Bao bì</label><input type="number" data-sim="packaging" value="4000"></div>
-</div><div class="result" id="simResult"></div></div>
-<div class="card section"><h2>Giá app tối thiểu theo Biên LN gộp mục tiêu</h2><p>Hệ thống tính ngược từ chi phí trực tiếp và tỷ lệ khấu trừ hiện tại.</p><div class="alert-list" id="simAdvice"></div></div>
-</div>
-</section>
-<section class="tab" id="guide">
-<div class="grid grid-2"><div class="card section"><h2>Ba con số phải đọc cùng nhau</h2><div class="alert-list"><div class="alert"><b>1. Giá app</b><br>Không phải tiền quán thực nhận. Đây chỉ là giá niêm yết trước các khoản khấu trừ.</div><div class="alert"><b>2. Doanh thu thực thu</b><br>Là phần còn lại sau chiết khấu, khuyến mãi và thuế/phí.</div><div class="alert"><b>3. Biên LN gộp</b><br>Là tỷ lệ lợi nhuận gộp trên doanh thu thực thu. Đây mới là chỉ số quyết định món có đáng đẩy bán hay không.</div></div></div><div class="card section"><h2>Nguyên tắc vận hành</h2><div class="alert-list"><div class="alert bad">Không chạy khuyến mãi cho món có Biên LN gộp thấp nếu chưa xác định rõ mục tiêu kéo khách, bán kèm hay tăng tần suất.</div><div class="alert">Tăng giá app không tự động làm lợi nhuận tốt hơn nếu tỷ lệ giảm đơn hoặc chi phí quảng cáo tăng mạnh.</div><div class="alert good">Ưu tiên món có Lợi nhuận gộp/đơn tốt, thao tác ổn định, bao bì phù hợp và chất lượng sau giao hàng vẫn đạt chuẩn.</div></div></div></div>
-</section>
-</div>
-<section class="tab" id="about">
-<div class="grid grid-2">
-<div class="card section">
-<h2>Về Học viện Concepts</h2>
-<p>Học viện Concepts là đơn vị đào tạo F&amp;B thực chiến, tập trung vào tư duy mô hình, vận hành, tài chính, sản phẩm và phát triển thương hiệu.</p>
-<div class="alert-list">
-<div class="alert"><b>Không chỉ học nấu, mà học tư duy làm nghề.</b><br>Kiến thức được tổ chức theo hướng hiểu bản chất, biết cách triển khai và có công cụ để kiểm soát kết quả.</div>
-<div class="alert"><b>Làm bằng tay và nghĩ bằng hệ thống.</b><br>Mỗi công cụ được thiết kế để hỗ trợ người làm F&amp;B ra quyết định bằng dữ liệu thay vì cảm giác.</div>
-<div class="alert good"><b>Mục tiêu cuối cùng:</b><br>Giúp mô hình sống sót, sống được và có nền tảng để phát triển dài hạn.</div>
-</div>
-</div>
-<div class="card section">
-<h2>Tài nguyên Học viện</h2>
-<p>Tham khảo các chương trình đào tạo phù hợp với giai đoạn hiện tại của mô hình.</p>
-<div class="links">
-<a href="https://vcs.edu.vn/khoa-hoc/" target="_blank" rel="noopener">Các khóa học</a>
-<a href="https://vcs.edu.vn/khoa-hoc/khoa-hoc-ke-toan-fnb-co-ban-cho-nguoi-moi/" target="_blank" rel="noopener">Khóa học cơ bản kế toán F&amp;B cho người mới</a>
-<a href="https://vcs.edu.vn/khoa-hoc/khoa-hoc-co-ban-van-hanh-cua-hang/" target="_blank" rel="noopener">Khóa học cơ bản vận hành cửa hàng F&amp;B cho người mới</a>
-<a href="https://vcs.edu.vn/khoa-hoc/khoa-hoc-so-0/" target="_blank" rel="noopener">Khóa học Số 0: Xây dựng cửa hàng F&amp;B tinh gọn</a>
-<a href="https://drive.google.com/drive/u/1/folders/1Ngl9Ga8TmS015yOHtyPZHz9du1LNaqdk" target="_blank" rel="noopener">Báo cáo Thị trường Kinh doanh Ẩm thực Việt Nam 2022–2025</a>
-</div>
-</div>
+  <div class="card section">
+    <h2>Bức tranh menu trên app</h2>
+    <p>Đọc tổng giá trị hiển thị, phần nền tảng giữ lại và phần còn lại để phục vụ vận hành.</p>
+    <div class="result" id="summary"></div>
+  </div>
+  <div class="card section">
+    <h2>Cảnh báo ưu tiên</h2>
+    <div class="alert-list" id="alerts"></div>
+  </div>
+  <div class="card section wide">
+    <h2>Xếp hạng món theo biên đóng góp</h2>
+    <div class="table-wrap"><table style="min-width:1300px"><thead><tr>
+      <th>Món</th><th>Giá trị hiển thị</th><th>Thu nhập đối soát</th><th>Tiếp thị</th><th>Thu nhập ròng</th><th>NVL + bao bì</th><th>Đóng góp/đơn</th><th>Biên đóng góp</th><th>Trạng thái</th>
+    </tr></thead><tbody id="rankBody"></tbody></table></div>
+  </div>
 </div>
 </section>
 
+<section class="tab" id="setup">
+<div class="card section">
+  <h2>Thiết lập app</h2>
+  <p>Nhập các tỷ lệ và khoản chi theo cấu hình thực tế của cửa hàng.</p>
+  <div class="form-grid">
+    <div class="field"><label>Phí nền tảng (%)</label><input type="number" step="0.1" data-setting="platformFee"></div>
+    <div class="field"><label>Khuyến mại quán chịu (%)</label><input type="number" step="0.1" data-setting="promoRate"></div>
+    <div class="field"><label>Khuyến mại cố định / đơn</label><input type="number" step="100" data-setting="promoFixed"></div>
+    <div class="field"><label>Tổng thuế PIT + VAT (%)</label><input type="number" step="0.1" data-setting="taxRate"></div>
+    <div class="field"><label>Tiếp thị / Ads (%)</label><input type="number" step="0.1" data-setting="marketingRate"></div>
+    <div class="field"><label>Tiếp thị cố định / đơn</label><input type="number" step="100" data-setting="marketingFixed"></div>
+    <div class="field"><label>Biên đóng góp mục tiêu (%)</label><input type="number" step="0.1" data-setting="targetCM"></div>
+  </div>
+  <div class="result" id="feeResult"></div>
+</div>
+</section>
+
+<section class="tab" id="menu">
+<div class="card section">
+  <h2>Danh mục & hiệu quả từng món</h2>
+  <div style="margin:12px 0"><button class="action" id="addItem">+ Thêm món</button></div>
+  <div class="table-wrap"><table id="menuTable"><thead><tr>
+    <th>#</th><th>Nhóm</th><th>Tên món</th><th>Mô tả</th><th>Giá cửa hàng</th><th>Giá niêm yết app</th><th>Giá trị hiển thị</th><th>Phí nền tảng</th><th>Khuyến mại</th><th>Thuế</th><th>Thu nhập đối soát</th><th>Tiếp thị</th><th>Thu nhập ròng</th><th>NVL</th><th>Bao bì</th><th>Đóng góp</th><th>Biên đóng góp</th><th></th>
+  </tr></thead><tbody></tbody></table></div>
+</div>
+</section>
+
+<section class="tab" id="simulator">
+<div class="grid grid-2">
+  <div class="card section">
+    <h2>Mô phỏng một món</h2>
+    <div class="form-grid" style="grid-template-columns:1fr 1fr">
+      <div class="field"><label>Giá niêm yết app</label><input type="number" data-sim="listPrice" value="53000"></div>
+      <div class="field"><label>Giá trị hiển thị</label><input type="number" data-sim="orderValue" value="40500"></div>
+      <div class="field"><label>Chi phí nguyên liệu</label><input type="number" data-sim="ingredient" value="12000"></div>
+      <div class="field"><label>Bao bì</label><input type="number" data-sim="packaging" value="3000"></div>
+    </div>
+    <div class="result" id="simResult"></div>
+  </div>
+  <div class="card section">
+    <h2>Gợi ý quyết định</h2>
+    <div class="alert-list" id="simAdvice"></div>
+  </div>
+</div>
+</section>
+
+<section class="tab" id="guide">
+<div class="grid grid-2">
+  <div class="card section">
+    <h2>Cách đọc số trên Food App</h2>
+    <p>Đọc từng lớp để biết phần nào là doanh thu hiển thị và phần nào là tiền quán giữ lại.</p>
+    <div class="alert-list">
+      <div class="alert"><b>Giá niêm yết</b><br>Mức giá món hiển thị trên ứng dụng.</div>
+      <div class="alert"><b>Giá trị hiển thị</b><br>Giá trị món được ghi nhận tại thời điểm khách đặt.</div>
+      <div class="alert"><b>Phí nền tảng</b><br>Khoản bị khấu trừ theo thiết lập thực tế của cửa hàng.</div>
+      <div class="alert"><b>Khuyến mại quán chịu</b><br>Phần ưu đãi cửa hàng tài trợ.</div>
+      <div class="alert"><b>Thuế</b><br>Một tỷ lệ tổng do người dùng nhập theo cấu hình thực tế.</div>
+      <div class="alert good"><b>Thu nhập ròng</b><br>Con số tiếp tục dùng để đánh giá khả năng trả NVL, bao bì và tạo phần đóng góp.</div>
+    </div>
+  </div>
+  <div class="card section">
+    <h2>5 câu hỏi quản lý cần trả lời</h2>
+    <div class="alert-list">
+      <div class="alert">1. Món nào bán nhiều nhưng phần tiền giữ lại thấp?</div>
+      <div class="alert">2. Món nào đang chịu khuyến mại quá sâu?</div>
+      <div class="alert">3. Sau các khoản khấu trừ, món còn đủ trả NVL + bao bì không?</div>
+      <div class="alert">4. Món nào đáng tăng hiển thị vì vừa có nhu cầu vừa tạo đóng góp tốt?</div>
+      <div class="alert good">5. Nếu tăng đơn 20%, phần đóng góp thực tế tăng bao nhiêu?</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="tab" id="about">
+<div class="grid grid-2">
+  <div class="card section">
+    <h2>Về Học viện Concepts</h2>
+    <p>Học viện Concepts (VCS) đào tạo F&amp;B thực chiến cho người mới, chủ quán, quản lý và đội ngũ đang phát triển mô hình.</p>
+    <div class="alert-list">
+      <div class="alert"><b>Không chỉ học nấu, mà học tư duy làm nghề</b><br>Kết nối sản phẩm, tài chính, vận hành, khách hàng và thương hiệu thành một hệ thống.</div>
+      <div class="alert"><b>Làm bằng tay và nghĩ bằng hệ thống</b><br>Công cụ giúp người dùng nhìn dữ liệu và ra quyết định rõ hơn.</div>
+      <div class="alert good"><b>Từ sống sót → sống được → phát triển</b><br>Xây nền vận hành đủ chắc trước khi mở rộng.</div>
+    </div>
+  </div>
+  <div class="card section">
+    <h2>Tài nguyên Học viện</h2>
+    <div class="links">
+      <a href="https://vcs.edu.vn/" target="_blank" rel="noopener">Website Học viện Concepts</a>
+      <a href="https://online-vcs.edu.vn/" target="_blank" rel="noopener">VCS ELearning</a>
+      <a href="https://online-vcs.edu.vn/khoa-hoc/" target="_blank" rel="noopener">Danh sách khóa học trực tuyến</a>
+    </div>
+    <div class="chips"><span class="chip">Tệp – Tâm – Tầm – Tiền</span><span class="chip">HIỂU – LÀM – PHÁT TRIỂN</span><span class="chip">LIVE</span><span class="chip">Menu Intelligence Toolkit</span></div>
+  </div>
+</div>
+</section>
+</main>
+</div>
+</div>
+
 <script>
-const LS='vcs_food_app_menu_v1';
-const defaultState={settings:{commission:25,promotion:10,tax:10,targetGM:50},items:[
-{group:'BÁNH MÌ ÉP GIÒN',code:'',name:'BÁNH MÌ THỊT HEO NƯỚNG',desc:'Grilled pork, cucumber, spring onion, coriander, home-made chili jam & pickles',storePrice:95000,appPrice:105000,ingredient:27403,packaging:4870,qty:100},
-{group:'FROM THE BEAN',code:'',name:'CÀ PHÊ PHIN (NÓNG/ ĐÁ)',desc:'Filter coffee (Hot/ Iced)',storePrice:50000,appPrice:55000,ingredient:10760,packaging:4000,qty:100},
-{group:'FROM THE BEAN',code:'',name:'CÀ PHÊ PHIN SỮA (NÓNG/ ĐÁ)',desc:'Coffee with condensed milk (Hot/ Iced)',storePrice:60000,appPrice:65000,ingredient:11932,packaging:4000,qty:100},
-{group:'FROM THE BEAN',code:'',name:'CÀ PHÊ BẠC XỈU',desc:'White coffee',storePrice:60000,appPrice:65000,ingredient:6515,packaging:4000,qty:100},
-{group:'FROM THE BEAN',code:'',name:'CÀ PHÊ SỮA LẮC',desc:'Signature Creamy Ca Phe Sua Da',storePrice:60000,appPrice:65000,ingredient:12170,packaging:4000,qty:100}
-]};
-let state=load();function load(){try{return {...structuredClone(defaultState),...JSON.parse(localStorage.getItem(LS)||'{}')}}catch(e){return structuredClone(defaultState)}}function save(){localStorage.setItem(LS,JSON.stringify(state))}function n(v){v=Number(v);return isFinite(v)?v:0}function money(v){return Math.round(n(v)).toLocaleString('vi-VN')}function pct(v){return n(v).toFixed(1).replace('.0','')+'%'}function rate(){return (n(state.settings.commission)+n(state.settings.promotion)+n(state.settings.tax))/100}function calc(x){const net=n(x.appPrice)*(1-rate()),cost=n(x.ingredient)+n(x.packaging),gp=net-cost,gm=net?gp/net*100:0,costPct=net?cost/net*100:0,diff=n(x.storePrice)?(net-n(x.storePrice))/n(x.storePrice)*100:0;return{net,cost,gp,gm,costPct,diff}}
-function bind(){document.querySelectorAll('[data-setting]').forEach(el=>el.value=state.settings[el.dataset.setting])}
-function renderTop(){const rows=state.items.map(x=>({...calc(x),qty:n(x.qty)||100,app:n(x.appPrice)}));const totalNet=rows.reduce((s,r)=>s+r.net*r.qty,0),totalGP=rows.reduce((s,r)=>s+r.gp*r.qty,0),gm=totalNet?totalGP/totalNet*100:0,risk=rows.filter(r=>r.gm<n(state.settings.targetGM)).length,avgApp=rows.length?rows.reduce((s,r)=>s+r.app,0)/rows.length:0;document.getElementById('kNet').textContent=money(totalNet);document.getElementById('kGP').textContent=money(totalGP);document.getElementById('kGM').textContent=pct(gm);document.getElementById('kRisk').textContent=risk;document.getElementById('sideItems').textContent=state.items.length;document.getElementById('sideDeduct').textContent=pct(rate()*100);document.getElementById('sideAppPrice').textContent=money(avgApp);document.getElementById('sideTarget').textContent=pct(state.settings.targetGM)}
-function renderDashboard(){const rows=state.items.map((x,i)=>({...x,...calc(x),i}));const totalNet=rows.reduce((s,r)=>s+r.net*n(r.qty||100),0),totalCost=rows.reduce((s,r)=>s+r.cost*n(r.qty||100),0),totalGP=totalNet-totalCost,avgCost=totalNet?totalCost/totalNet*100:0;document.getElementById('summary').innerHTML=`<div class="pill"><b>Thực thu</b><span>${money(totalNet)}</span></div><div class="pill"><b>Chi phí trực tiếp</b><span>${money(totalCost)}</span></div><div class="pill"><b>Lợi nhuận gộp</b><span>${money(totalGP)}</span></div><div class="pill"><b>% chi phí</b><span>${pct(avgCost)}</span></div><div class="pill"><b>Biên LN gộp</b><span>${pct(100-avgCost)}</span></div>`;const top=[...rows].sort((a,b)=>b.gp-a.gp).slice(0,6),max=Math.max(1,...top.map(r=>r.gp));document.getElementById('bars').innerHTML=top.map(r=>`<div class="barrow"><div class="barlabel">${r.name}</div><div class="bartrack"><div class="barfill" style="width:${Math.max(2,r.gp/max*100)}%"></div></div><div class="barval">${money(r.gp)}</div></div>`).join('');let alerts=[];rows.filter(r=>r.gm<n(state.settings.targetGM)).sort((a,b)=>a.gm-b.gm).forEach(r=>alerts.push(`<div class="alert bad"><b>${r.name}</b>: Biên LN gộp ${pct(r.gm)}, thấp hơn ngưỡng ${pct(state.settings.targetGM)}. Cần xem lại giá app, định mức hoặc mức khuyến mãi.</div>`));rows.filter(r=>r.gm>=n(state.settings.targetGM)).sort((a,b)=>b.gp-a.gp).slice(0,2).forEach(r=>alerts.push(`<div class="alert good"><b>${r.name}</b>: Lợi nhuận gộp/đơn ${money(r.gp)}, Biên LN gộp ${pct(r.gm)}. Có thể ưu tiên hiển thị nếu chất lượng giao hàng ổn định.</div>`));if(!alerts.length)alerts.push('<div class="alert good">Danh mục hiện chưa có cảnh báo theo ngưỡng Biên LN gộp đã đặt.</div>');document.getElementById('alerts').innerHTML=alerts.join('');document.getElementById('rankBody').innerHTML=[...rows].sort((a,b)=>b.gp-a.gp).map(r=>`<tr><td><b>${r.name}</b></td><td class="num">${money(r.appPrice)}</td><td class="num">${money(r.net)}</td><td class="num">${money(r.cost)}</td><td class="num"><b>${money(r.gp)}</b></td><td class="num"><b class="${r.gm>=state.settings.targetGM?'good':'bad'}">${pct(r.gm)}</b></td><td>${r.gm>=state.settings.targetGM?'<span class="good">Đạt</span>':'<span class="bad">Cần xử lý</span>'}</td></tr>`).join('')}
-function renderFees(){const keep=(1-rate())*100;document.getElementById('feeResult').innerHTML=`<div class="pill"><b>Tổng khấu trừ</b><span>${pct(rate()*100)}</span></div><div class="pill"><b>Tỷ lệ thực nhận</b><span>${pct(keep)}</span></div><div class="pill"><b>Chiết khấu</b><span>${pct(state.settings.commission)}</span></div><div class="pill"><b>Khuyến mãi</b><span>${pct(state.settings.promotion)}</span></div><div class="pill"><b>Thuế/phí</b><span>${pct(state.settings.tax)}</span></div>`}
-function renderMenu(){document.querySelector('#menuTable tbody').innerHTML=state.items.map((x,i)=>{const c=calc(x);return `<tr><td>${i+1}</td><td><input value="${esc(x.group)}" onchange="upd(${i},'group',this.value)"></td><td><input value="${esc(x.code)}" onchange="upd(${i},'code',this.value)"></td><td><input class="name" value="${esc(x.name)}" onchange="upd(${i},'name',this.value)"></td><td><input class="desc" value="${esc(x.desc)}" onchange="upd(${i},'desc',this.value)"></td><td><input type="number" value="${x.storePrice}" onchange="upd(${i},'storePrice',this.value)"></td><td><input type="number" value="${x.appPrice}" onchange="upd(${i},'appPrice',this.value)"></td><td class="num"><b>${money(c.net)}</b></td><td class="num ${c.diff>=0?'good':'bad'}">${pct(c.diff)}</td><td><input type="number" value="${x.ingredient}" onchange="upd(${i},'ingredient',this.value)"></td><td><input type="number" value="${x.packaging}" onchange="upd(${i},'packaging',this.value)"></td><td class="num">${money(c.cost)}</td><td class="num">${pct(c.costPct)}</td><td class="num"><b>${money(c.gp)}</b></td><td class="num"><b class="${c.gm>=state.settings.targetGM?'good':'bad'}">${pct(c.gm)}</b></td><td><button class="mini-btn" onclick="delItem(${i})">Xóa</button></td></tr>`}).join('')}
-function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')};window.upd=(i,k,v)=>{state.items[i][k]=['storePrice','appPrice','ingredient','packaging','qty'].includes(k)?n(v):v;save();render()};window.delItem=i=>{state.items.splice(i,1);save();render()};
-function renderSim(){const val=k=>n(document.querySelector(`[data-sim="${k}"]`)?.value),x={storePrice:val('storePrice'),appPrice:val('appPrice'),ingredient:val('ingredient'),packaging:val('packaging')},c=calc(x),den=(1-rate())*(1-state.settings.targetGM/100),min=den>0?c.cost/den:0;document.getElementById('simResult').innerHTML=`<div class="pill"><b>Thực thu</b><span>${money(c.net)}</span></div><div class="pill"><b>Chi phí trực tiếp</b><span>${money(c.cost)}</span></div><div class="pill"><b>Lợi nhuận gộp</b><span>${money(c.gp)}</span></div><div class="pill"><b>Biên LN gộp</b><span class="${c.gm>=state.settings.targetGM?'good':'bad'}">${pct(c.gm)}</span></div><div class="pill"><b>Chênh thực thu</b><span>${pct(c.diff)}</span></div>`;document.getElementById('simAdvice').innerHTML=`<div class="alert"><b>Giá app tối thiểu:</b> khoảng <b>${money(Math.ceil(min/1000)*1000)}</b> để đạt Biên LN gộp ${pct(state.settings.targetGM)} với các mức khấu trừ hiện tại.</div><div class="alert ${x.appPrice>=min?'good':'bad'}">Giá đang nhập ${x.appPrice>=min?'đạt':'chưa đạt'} ngưỡng mục tiêu. Khoảng cách: <b>${money(x.appPrice-min)}</b>.</div><div class="alert">Mức tăng so với giá cửa hàng: <b>${pct(x.storePrice?(x.appPrice/x.storePrice-1)*100:0)}</b>. Cần kiểm tra thêm sức chịu giá và mặt bằng cạnh tranh trên ứng dụng.</div>`}
-function render(){bind();renderTop();renderDashboard();renderFees();renderMenu();renderSim()}
-document.addEventListener('input',e=>{if(e.target.matches('[data-setting]')){state.settings[e.target.dataset.setting]=n(e.target.value);save();render()}if(e.target.matches('[data-sim]'))renderSim()});document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('.tab-btn');if(!b)return;document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active')});document.getElementById('addItem').onclick=()=>{state.items.push({group:'NHÓM MỚI',code:'',name:'Món mới',desc:'',storePrice:0,appPrice:0,ingredient:0,packaging:0,qty:100});save();render()};document.getElementById('resetBtn').onclick=()=>{if(confirm('Khôi phục dữ liệu mẫu từ file Excel?')){state=structuredClone(defaultState);save();render()}};document.getElementById('exportBtn').onclick=()=>{const head=['Nhóm','Code','Tên món','Mô tả','Giá cửa hàng','Giá app','Thực thu','Chênh lệch %','Chi phí nguyên liệu','Bao bì','Chi phí trực tiếp','% chi phí','Lợi nhuận gộp','Biên LN gộp'];const rows=state.items.map(x=>{const c=calc(x);return[x.group,x.code,x.name,x.desc,x.storePrice,x.appPrice,Math.round(c.net),c.diff.toFixed(2),x.ingredient,x.packaging,Math.round(c.cost),c.costPct.toFixed(2),Math.round(c.gp),c.gm.toFixed(2)]});const csv='\ufeff'+[head,...rows].map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='VCS_Menu_Food_App.csv';a.click();URL.revokeObjectURL(a.href)};render();
+const KEY='vcs_foodapp_v5_vertical';
+const D={settings:{platformFee:21.3,promoRate:0,promoFixed:6000,taxRate:4.5,marketingRate:0,marketingFixed:0,targetCM:25},items:[
+{group:'MÓN NƯỚC',name:'BÚN MĂNG GÀ',desc:'Món mẫu',storePrice:53000,listPrice:53000,orderValue:40500,ingredient:12000,packaging:3000,qty:100},
+{group:'BÁNH MÌ',name:'BÁNH MÌ THỊT HEO NƯỚNG',desc:'Grilled pork',storePrice:95000,listPrice:105000,orderValue:105000,ingredient:27403,packaging:4870,qty:100},
+{group:'CÀ PHÊ',name:'CÀ PHÊ PHIN',desc:'Filter coffee',storePrice:50000,listPrice:55000,orderValue:55000,ingredient:10760,packaging:4000,qty:100},
+{group:'CÀ PHÊ',name:'CÀ PHÊ PHIN SỮA',desc:'Coffee with condensed milk',storePrice:60000,listPrice:65000,orderValue:65000,ingredient:11932,packaging:4000,qty:100}]};
+const clone=x=>JSON.parse(JSON.stringify(x));let S=(()=>{try{return JSON.parse(localStorage.getItem(KEY))||clone(D)}catch(e){return clone(D)}})();
+const n=v=>isFinite(Number(v))?Number(v):0,m=v=>Math.round(n(v)).toLocaleString('vi-VN'),p=(v,d=1)=>n(v).toFixed(d).replace(/\.0$/,'')+'%';
+function c(x){let s=S.settings,o=n(x.orderValue),pf=o*n(s.platformFee)/100,pr=o*n(s.promoRate)/100+n(s.promoFixed),tb=Math.max(0,o-pr),tax=Math.round(tb*n(s.taxRate)/100),sett=o-pf-pr-tax,mkt=o*n(s.marketingRate)/100+n(s.marketingFixed),net=sett-mkt,cost=n(x.ingredient)+n(x.packaging),cont=net-cost;return{o,pf,pr,tax,sett,mkt,net,cost,cont,keep:o?net/o*100:0,cm:o?cont/o*100:0}}
+function save(){localStorage.setItem(KEY,JSON.stringify(S))}
+function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function render(){
+ document.querySelectorAll('[data-setting]').forEach(e=>e.value=S.settings[e.dataset.setting]);
+ let rows=S.items.map(x=>({...x,...c(x),qty:n(x.qty)||100})),sum=k=>rows.reduce((a,r)=>a+r[k]*r.qty,0),ord=sum('o'),net=sum('net'),cont=sum('cont');
+ kNet.textContent=m(net);kKeep.textContent=p(ord?net/ord*100:0);kCont.textContent=m(cont);kCM.textContent=p(ord?cont/ord*100:0);kRisk.textContent=rows.filter(r=>r.cm<n(S.settings.targetCM)).length;
+ summary.innerHTML=`<div class="pill"><b>Giá trị hiển thị</b><span>${m(ord)}</span></div><div class="pill"><b>Phí nền tảng</b><span>${m(sum('pf'))}</span></div><div class="pill"><b>Khuyến mại</b><span>${m(sum('pr'))}</span></div><div class="pill"><b>Thuế</b><span>${m(sum('tax'))}</span></div><div class="pill"><b>Thu nhập ròng</b><span>${m(net)}</span></div>`;
+ let al=[];rows.filter(r=>r.cm<n(S.settings.targetCM)).forEach(r=>al.push(`<div class="alert bad"><b>${esc(r.name)}</b>: biên đóng góp ${p(r.cm)}, dưới ngưỡng ${p(S.settings.targetCM)}.</div>`));if(!al.length)al.push('<div class="alert good">Chưa có món dưới ngưỡng mục tiêu.</div>');alerts.innerHTML=al.join('');
+ rankBody.innerHTML=[...rows].sort((a,b)=>b.cm-a.cm).map(r=>`<tr><td><b>${esc(r.name)}</b></td><td class=num>${m(r.o)}</td><td class=num>${m(r.sett)}</td><td class=num>${m(r.mkt)}</td><td class=num>${m(r.net)}</td><td class=num>${m(r.cost)}</td><td class=num><b>${m(r.cont)}</b></td><td class=num><b class="${r.cm>=S.settings.targetCM?'good':'bad'}">${p(r.cm)}</b></td><td>${r.cm>=S.settings.targetCM?'<span class=good>Đạt</span>':'<span class=bad>Cần xử lý</span>'}</td></tr>`).join('');
+ let s=S.settings,base=40500,pf=base*n(s.platformFee)/100,pr=base*n(s.promoRate)/100+n(s.promoFixed),tax=Math.round(Math.max(0,base-pr)*n(s.taxRate)/100),mk=base*n(s.marketingRate)/100+n(s.marketingFixed);
+ feeResult.innerHTML=`<div class="pill"><b>Phí nền tảng</b><span>${p(s.platformFee)}</span></div><div class="pill"><b>Khuyến mại cố định</b><span>${m(s.promoFixed)}</span></div><div class="pill"><b>Tổng thuế</b><span>${p(s.taxRate)}</span></div><div class="pill"><b>Tiếp thị</b><span>${p(s.marketingRate)}</span></div><div class="pill"><b>Giữ lại mẫu 40.500</b><span>${m(base-pf-pr-tax-mk)}</span></div>`;
+ document.querySelector('#menuTable tbody').innerHTML=S.items.map((x,i)=>{let r=c(x);return `<tr><td>${i+1}</td><td><input value="${esc(x.group)}" onchange="u(${i},'group',this.value)"></td><td><input class=name value="${esc(x.name)}" onchange="u(${i},'name',this.value)"></td><td><input class=desc value="${esc(x.desc)}" onchange="u(${i},'desc',this.value)"></td><td><input type=number value="${x.storePrice}" onchange="u(${i},'storePrice',this.value)"></td><td><input type=number value="${x.listPrice}" onchange="u(${i},'listPrice',this.value)"></td><td><input type=number value="${x.orderValue}" onchange="u(${i},'orderValue',this.value)"></td><td class=num>${m(r.pf)}</td><td class=num>${m(r.pr)}</td><td class=num>${m(r.tax)}</td><td class=num><b>${m(r.sett)}</b></td><td class=num>${m(r.mkt)}</td><td class=num><b>${m(r.net)}</b></td><td><input type=number value="${x.ingredient}" onchange="u(${i},'ingredient',this.value)"></td><td><input type=number value="${x.packaging}" onchange="u(${i},'packaging',this.value)"></td><td class=num><b>${m(r.cont)}</b></td><td class=num><b class="${r.cm>=S.settings.targetCM?'good':'bad'}">${p(r.cm)}</b></td><td><button class=mini-btn onclick="del(${i})">Xóa</button></td></tr>`}).join('');
+ sim();
+}
+function sim(){let g=k=>n(document.querySelector(`[data-sim="${k}"]`)?.value),x={listPrice:g('listPrice'),orderValue:g('orderValue'),ingredient:g('ingredient'),packaging:g('packaging')},r=c(x),s=S.settings,pf=n(s.platformFee)/100,pr=n(s.promoRate)/100,tr=n(s.taxRate)/100,mr=n(s.marketingRate)/100,F=n(s.promoFixed),M=n(s.marketingFixed),target=n(s.targetCM)/100,coef=1-pf-pr-tr+pr*tr-mr,den=coef-target,min=den>0?((F*(1-tr))+M+r.cost)/den:0;
+ simResult.innerHTML=`<div class="pill"><b>Thu nhập đối soát</b><span>${m(r.sett)}</span></div><div class="pill"><b>Thu nhập ròng</b><span>${m(r.net)}</span></div><div class="pill"><b>NVL + bao bì</b><span>${m(r.cost)}</span></div><div class="pill"><b>Đóng góp</b><span>${m(r.cont)}</span></div><div class="pill"><b>Biên đóng góp</b><span>${p(r.cm)}</span></div>`;
+ simAdvice.innerHTML=`<div class="alert"><b>Giá trị hiển thị tối thiểu:</b> khoảng <b>${m(Math.ceil(min/1000)*1000)}đ</b> để đạt biên đóng góp ${p(s.targetCM)}.</div><div class="alert ${x.orderValue>=min?'good':'bad'}">Giá trị hiển thị hiện tại ${x.orderValue>=min?'đạt':'chưa đạt'} ngưỡng.</div>`;
+}
+window.u=(i,k,v)=>{S.items[i][k]=['storePrice','listPrice','orderValue','ingredient','packaging','qty'].includes(k)?n(v):v;save();render()};window.del=i=>{S.items.splice(i,1);save();render()};
+document.addEventListener('input',e=>{if(e.target.matches('[data-setting]')){S.settings[e.target.dataset.setting]=n(e.target.value);save();render()}if(e.target.matches('[data-sim]'))sim()});
+tabs.addEventListener('click',e=>{let b=e.target.closest('.tab-btn');if(!b)return;document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active')});
+addItem.onclick=()=>{S.items.push({group:'NHÓM MỚI',name:'Món mới',desc:'',storePrice:0,listPrice:0,orderValue:0,ingredient:0,packaging:0,qty:100});save();render()};
+resetBtn.onclick=()=>{if(confirm('Khôi phục dữ liệu mẫu?')){S=clone(D);save();render()}};
+exportBtn.onclick=()=>{let h=['Nhóm','Tên món','Giá cửa hàng','Giá niêm yết app','Giá trị hiển thị','Phí nền tảng','Khuyến mại','Thuế','Thu nhập đối soát','Tiếp thị','Thu nhập ròng','NVL','Bao bì','Đóng góp','Biên đóng góp'];let rr=S.items.map(x=>{let r=c(x);return[x.group,x.name,x.storePrice,x.listPrice,x.orderValue,Math.round(r.pf),Math.round(r.pr),Math.round(r.tax),Math.round(r.sett),Math.round(r.mkt),Math.round(r.net),x.ingredient,x.packaging,Math.round(r.cont),r.cm.toFixed(2)]});let csv='﻿'+[h,...rr].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='VCS_Menu_Food_App.csv';a.click()};
+render();
 </script>
 </body>
 </html>
